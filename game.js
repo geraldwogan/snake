@@ -8,8 +8,13 @@ const gameBoard = document.getElementById('game-board')
 
 function main(currentTime){
     if (gameOver){
-        return alert('you lose')
+        if(confirm('You lose, press OK to restart'))
+        {
+            window.location = '/snake/index.html'
+        }
+        return
     }
+    
     window.requestAnimationFrame(main)
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
